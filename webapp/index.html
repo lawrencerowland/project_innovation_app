@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Innovation & Project Management App</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Innovation & Project Management App</h1>
+  <section id="idea-form-section">
+    <h2>Submit New Idea</h2>
+    <form id="idea-form">
+      <label>Title
+        <input type="text" id="idea-title" required>
+      </label>
+      <label>Description
+        <textarea id="idea-description" required></textarea>
+      </label>
+      <label>Category
+        <select id="idea-category"></select>
+      </label>
+      <button type="submit">Submit Idea</button>
+    </form>
+  </section>
+  <section id="ideas-section">
+    <h2>Ideas</h2>
+    <ul id="ideas-list"></ul>
+  </section>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

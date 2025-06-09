@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; margin: 2em; }
+section { margin-bottom: 2em; }
+label { display: block; margin-bottom: 1em; }
+input, textarea, select { width: 100%; padding: 0.5em; margin-top: 0.5em; }
+button { padding: 0.5em 1em; }
+.idea-item { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; }
+.idea-item h3 { margin-top: 0; }
