@@ -6,8 +6,12 @@ be served on GitHub Pages or any static web host.
 
 ## Running
 
-Open `webapp/index.html` in a browser. Ideas entered are stored in local
-storage and will persist for future visits on the same browser.
+Open `webapp/index.html` in a browser. Ideas entered are stored in the
+browser's local storage and will persist for future visits on the same
+browser.
 
-The prototype demonstrates the basic idea submission workflow with categories
-and listing of submitted ideas.
+Idea categories are loaded from `webapp/data/categories.json`. To add or
+modify categories, edit that file and refresh the page.
+
+The prototype demonstrates the basic idea submission workflow with a category
+selector and listing of submitted ideas.

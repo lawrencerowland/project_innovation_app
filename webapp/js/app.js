@@ -1,8 +1,9 @@
-const categories = ['General', 'UI', 'Process', 'Cost Reduction'];
+let categories = [];
 let ideas = JSON.parse(localStorage.getItem('ideas') || '[]');
 
 function populateCategories() {
   const select = document.getElementById('idea-category');
+  select.innerHTML = '';
   categories.forEach(cat => {
     const option = document.createElement('option');
     option.value = cat;
@@ -41,5 +42,15 @@ function addIdea(event) {
 
 document.getElementById('idea-form').addEventListener('submit', addIdea);
 
-populateCategories();
+function loadCategories() {
+  fetch('data/categories.json')
+    .then(res => res.json())
+    .then(data => {
+      categories = data;
+      populateCategories();
+    })
+    .catch(err => console.error('Failed to load categories', err));
+}
+
+loadCategories();
 renderIdeas();
