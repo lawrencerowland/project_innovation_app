@@ -6,7 +6,7 @@ be served on GitHub Pages or any static web host.
 
 ## Running
 
-Open `webapp/index.html` in a browser. Ideas entered are stored in the
+Open https://lawrencerowland.github.io/project_innovation_app/webapp/index.html. Ideas entered are stored in the
 browser's local storage and will persist for future visits on the same
 browser.
 
