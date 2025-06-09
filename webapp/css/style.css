@@ -5,3 +5,12 @@ input, textarea, select { width: 100%; padding: 0.5em; margin-top: 0.5em; }
 button { padding: 0.5em 1em; }
 .idea-item { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; }
 .idea-item h3 { margin-top: 0; }
+#filter-section label {
+  display: inline-block;
+  margin-right: 1em;
+}
+#filter-section input[type="text"],
+#filter-section select {
+  width: auto;
+  min-width: 150px;
+}

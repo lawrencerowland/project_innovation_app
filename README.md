@@ -14,4 +14,5 @@ Idea categories are loaded from `webapp/data/categories.json`. To add or
 modify categories, edit that file and refresh the page.
 
 The prototype demonstrates the basic idea submission workflow with a category
-selector and listing of submitted ideas.
+selector and listing of submitted ideas. Ideas can be filtered by category,
+status or searched by keywords using the controls above the list.

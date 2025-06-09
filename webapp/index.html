@@ -23,11 +23,29 @@
       <button type="submit">Submit Idea</button>
     </form>
   </section>
+  <section id="filter-section">
+    <h2>Browse Ideas</h2>
+    <label>Search
+      <input type="text" id="filter-search" placeholder="Search ideas">
+    </label>
+    <label>Category
+      <select id="filter-category">
+        <option value="">All</option>
+      </select>
+    </label>
+    <label>Status
+      <select id="filter-status">
+        <option value="">All</option>
+      </select>
+    </label>
+  </section>
   <section id="ideas-section">
     <h2>Ideas</h2>
     <ul id="ideas-list"></ul>
   </section>
 
+  <script src="js/ontology.js"></script>
+  <script src="js/models.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
