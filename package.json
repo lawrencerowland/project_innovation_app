@@ -4,5 +4,9 @@
   "type": "module",
   "dependencies": {
     "@xmldom/xmldom": "^0.8.8"
+  },
+  "scripts": {
+    "generate:statuses": "node scripts/generate_statuses.cjs",
+    "generate:ontology": "node scripts/generate_ontology.cjs"
   }
 }
