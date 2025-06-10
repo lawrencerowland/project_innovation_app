@@ -16,3 +16,13 @@ modify categories, edit that file and refresh the page.
 The prototype demonstrates the basic idea submission workflow with a category
 selector and listing of submitted ideas. Ideas can be filtered by category,
 status or searched by keywords using the controls above the list.
+
+## Development
+
+Run `npm install` once to install dependencies.
+
+### Updating ontology constants
+
+The GI2MO constants used by the app are generated from `Innovation0_gi2mo.owl`.
+Execute `npm run generate:ontology` whenever the ontology changes to update
+`webapp/js/ontology.js`.
