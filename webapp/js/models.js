@@ -17,6 +17,7 @@ class Idea {
     this.category = category;
     this.status = status;
     this.created = new Date().toISOString();
+    this.comments = [];
   }
 }
 
@@ -35,6 +36,15 @@ class Review {
     this['@type'] = GI2MO.Review;
     this.text = text;
     this.score = score;
+    this.author = author;
+    this.created = new Date().toISOString();
+  }
+}
+
+class Comment {
+  constructor(text, author) {
+    this['@type'] = GI2MO.Comment;
+    this.text = text;
     this.author = author;
     this.created = new Date().toISOString();
   }

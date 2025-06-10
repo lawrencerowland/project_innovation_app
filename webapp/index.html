@@ -44,6 +44,22 @@
     <ul id="ideas-list"></ul>
   </section>
 
+  <div id="idea-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <h3>Comments</h3>
+      <ul id="comments-list"></ul>
+      <form id="comment-form">
+        <label>Add Comment
+          <textarea id="comment-text" required></textarea>
+        </label>
+        <button type="submit">Add Comment</button>
+      </form>
+      <button id="close-modal">Close</button>
+    </div>
+  </div>
+
   <script src="js/ontology.js"></script>
   <script src="js/models.js"></script>
   <script src="js/app.js"></script>
