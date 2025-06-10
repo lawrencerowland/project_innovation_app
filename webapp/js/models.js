@@ -1,11 +1,16 @@
 const IdeaStatus = {
-  SUBMITTED: 'Submitted',
-  IN_REVIEW: 'In Review',
-  IMPLEMENTED: 'Implemented'
+  DRAFT: 'Draft',
+  UNDER_REVIEW: 'UnderReview',
+  ACCEPTED: 'Accepted',
+  IMPLEMENTED: 'Implemented',
+  PARTIALLY_IMPLEMENTED: 'PartialyImplemented',
+  REJECTED: 'Rejected',
+  DEPLOYED: 'Deployed',
+  ALREADY_EXISTS: 'AlreadyExists'
 };
 
 class Idea {
-  constructor(title, description, category, status = IdeaStatus.SUBMITTED) {
+  constructor(title, description, category, status = IdeaStatus.DRAFT) {
     this['@type'] = GI2MO.Idea;
     this.title = title;
     this.description = description;
