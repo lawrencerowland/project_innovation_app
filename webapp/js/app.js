@@ -1,6 +1,10 @@
 let categories = [];
 let statuses = [];
 let ideas = JSON.parse(localStorage.getItem('ideas') || '[]');
+ideas.forEach(i => {
+  if (!i.comments) i.comments = [];
+});
+let currentIdeaIndex = null;
 
 function populateCategories() {
   const ideaSelect = document.getElementById('idea-category');
@@ -49,11 +53,12 @@ function saveIdeas() {
 function renderIdeas(data = ideas) {
   const list = document.getElementById('ideas-list');
   list.innerHTML = '';
-  data.forEach((idea) => {
+  data.forEach((idea, idx) => {
     const li = document.createElement('li');
     li.className = 'idea-item';
     const snippet = idea.description.length > 120 ? idea.description.slice(0, 117) + '...' : idea.description;
     li.innerHTML = `<h3>${idea.title}</h3><p>${snippet}</p><p><strong>Category:</strong> ${idea.category}</p><p><strong>Status:</strong> ${idea.status}</p>`;
+    li.addEventListener('click', () => openIdeaModal(idx));
     list.appendChild(li);
   });
 }
@@ -84,10 +89,47 @@ function filterIdeas() {
   renderIdeas(filtered);
 }
 
+function renderComments(comments) {
+  const list = document.getElementById('comments-list');
+  list.innerHTML = '';
+  comments.forEach(c => {
+    const li = document.createElement('li');
+    li.textContent = `${c.author || 'Anon'}: ${c.text}`;
+    list.appendChild(li);
+  });
+}
+
+function openIdeaModal(index) {
+  currentIdeaIndex = index;
+  const idea = ideas[index];
+  document.getElementById('modal-title').textContent = idea.title;
+  document.getElementById('modal-description').textContent = idea.description;
+  renderComments(idea.comments || []);
+  document.getElementById('idea-modal').classList.remove('hidden');
+}
+
+function closeIdeaModal() {
+  document.getElementById('idea-modal').classList.add('hidden');
+  currentIdeaIndex = null;
+}
+
+function addComment(event) {
+  event.preventDefault();
+  const text = document.getElementById('comment-text').value.trim();
+  if (!text || currentIdeaIndex === null) return;
+  const comment = new Comment(text, '');
+  ideas[currentIdeaIndex].comments.push(comment);
+  saveIdeas();
+  renderComments(ideas[currentIdeaIndex].comments);
+  event.target.reset();
+}
+
 document.getElementById('idea-form').addEventListener('submit', addIdea);
 document.getElementById('filter-search').addEventListener('input', filterIdeas);
 document.getElementById('filter-category').addEventListener('change', filterIdeas);
 document.getElementById('filter-status').addEventListener('change', filterIdeas);
+document.getElementById('comment-form').addEventListener('submit', addComment);
+document.getElementById('close-modal').addEventListener('click', closeIdeaModal);
 
 function loadCategories() {
   fetch('data/categories.json')
