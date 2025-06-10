@@ -1,0 +1,21 @@
+{
+  "ideaStatuses": [
+    "Implemented",
+    "Rejected",
+    "PartialyImplemented",
+    "UnderReview",
+    "Accepted",
+    "Deployed",
+    "AlreadyExists",
+    "Draft"
+  ],
+  "contestStatuses": [
+    "Closed",
+    "PendingReviews",
+    "Active"
+  ],
+  "accessTypes": [
+    "WriteAccess",
+    "ReadAccess"
+  ]
+}

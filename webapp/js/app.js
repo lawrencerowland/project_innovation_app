@@ -1,6 +1,6 @@
 let categories = [];
+let statuses = [];
 let ideas = JSON.parse(localStorage.getItem('ideas') || '[]');
-const statuses = Object.values(IdeaStatus);
 
 function populateCategories() {
   const ideaSelect = document.getElementById('idea-category');
@@ -29,6 +29,17 @@ function populateStatuses() {
     option.textContent = st;
     filterSelect.appendChild(option);
   });
+}
+
+function loadStatuses() {
+  fetch('data/statuses.json')
+    .then(res => res.json())
+    .then(data => {
+      statuses = data.ideaStatuses || [];
+      populateStatuses();
+      filterIdeas();
+    })
+    .catch(err => console.error('Failed to load statuses', err));
 }
 
 function saveIdeas() {
@@ -90,5 +101,5 @@ function loadCategories() {
 }
 
 loadCategories();
-populateStatuses();
+loadStatuses();
 filterIdeas();
